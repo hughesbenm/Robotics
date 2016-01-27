@@ -1,0 +1,50 @@
+
+
+import edu.wpi.first.wpilibj.SampleRobot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.CANTalon;
+
+public class testrobot extends SampleRobot
+{
+	CANTalon frontLeft;
+	CANTalon backLeft;
+	CANTalon frontRight;
+	CANTalon backRight;
+	RobotDrive robot;
+	Joystick stick1;    
+	//	CANTalon motor order is frontLeft, backLeft, frontRight, backRight
+	
+	public testrobot()
+	{
+		frontLeft = new CANTalon(0);
+		backLeft = new CANTalon(1);
+		frontRight = new CANTalon(2);
+		backRight = new CANTalon(3);
+		robot = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
+//		RobotDrive requires motor order of CANTalon
+		
+		stick1 = new Joystick(0);
+		double x = 0;
+		double y = 0;
+	
+		if (stick1.getY() < .15 && stick1.getY() > -.15)
+		{
+			y = 0;
+		}
+		else
+		{
+			y = ((stick1.getY() - .15) / .0085);
+		}
+		if (stick1.getX() < .15 && stick1.getX() > -.15)
+		{
+			x = 0;
+		}
+		else 
+		{
+			x = ((stick1.getX() - .15) / .0085);
+		}
+	
+	}
+}
+
