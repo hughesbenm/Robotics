@@ -42,7 +42,7 @@ public class testrobot extends SampleRobot
 	{
 
 		boolean buttonFlag = false;
-		double X1 = 0;
+		//double X1 = 0;
 		double Y1 = 0;
 		double Z1 = 0;
 		while (isOperatorControl() && isEnabled()) 
@@ -64,19 +64,19 @@ public class testrobot extends SampleRobot
 			}
 			// Sets dead zone for y, scales rest of percentages
 
-			if (joystick1.getX() > 0.15) 
+			if (joystick1.getZ() > 0.15) 
 			{
-				X1 = (joystick1.getX() - 0.15) / 0.85;
+				Z1 = (joystick1.getZ() - 0.15) / 0.85;
 			} 
 			
-			else if (joystick1.getX() < -0.15) 
+			else if (joystick1.getZ() < -0.15) 
 			{
-				X1 = (joystick1.getX() + 0.15) / 0.85;
+				Z1 = (joystick1.getZ() + 0.15) / 0.85;
 			}
 			
 			else 
 			{
-				X1 = 0;
+				Z1 = 0;
 			}
 			// Sets dead zone for x, scales rest of percentages
 
